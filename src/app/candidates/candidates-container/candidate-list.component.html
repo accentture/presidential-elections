@@ -1,1 +1,4 @@
-<p>candidate-list works!</p>
+
+<ul *ngFor="let candidate of candidates">
+    <li><a (click)="displayDataDetailed(candidate['Prenombres'])">{{candidate['Prenombres']}} {{candidate['Primer apellido']}} {{candidate['Segundo apellido']}}</a></li>
+</ul>

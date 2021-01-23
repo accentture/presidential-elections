@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CandidatesModule } from './candidates/candidates.module';
-
+import { CommentsModule } from './comments/comments.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CandidatesModule, AppRoutingModule],
+  imports: [BrowserModule, CommentsModule, CandidatesModule, AppRoutingModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

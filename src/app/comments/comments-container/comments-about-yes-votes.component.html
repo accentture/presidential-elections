@@ -1,0 +1,12 @@
+
+<ng-container *ngIf="boxComments == 'yes'">
+    <p>{{boxComments}}</p>
+</ng-container>
+
+<ng-container *ngIf="boxComments == 'government'">
+    <comments-about-government ></comments-about-government>
+</ng-container>
+
+<ng-container *ngIf="boxComments == 'no'">
+    <comments-about-no-votes ></comments-about-no-votes>
+</ng-container>

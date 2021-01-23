@@ -1,0 +1,15 @@
+.container-candidate-detail{
+    display:flex;
+    justify-content: space-between;
+    padding-top:40px;
+    
+    .box-image{
+        width: 30%;
+        height: 60px;
+        background-color: red;
+    }
+    .data-candidate{
+        width:50%;
+        font-size: 20px;
+    }
+}

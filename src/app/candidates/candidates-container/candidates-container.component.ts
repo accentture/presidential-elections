@@ -8,7 +8,7 @@ import { presidentialCandidates } from './candidates-mock';
     styleUrls: ['./candidates-container.component.scss'],
 })
 export class CandidatesContainerComponent implements OnInit {
-    candidate: Candidate[] = presidentialCandidates;
+    candidates: Candidate[] = presidentialCandidates;
     constructor() {}
 
     ngOnInit(): void {}

@@ -1,0 +1,29 @@
+.container-comments{
+    width:70%;
+    margin:0 auto;
+
+    .box-questions{
+        width: 100%;
+        ul{
+            display:flex;
+            justify-content: space-evenly;
+            border:2px solid brown;
+            li{
+                width: 33.3%;
+                border:2px solid navy;
+                list-style: none;
+                text-align: center;
+                background-color: black;
+                a{
+                    display:block;
+                    color:white;
+                    text-decoration: none;
+                }
+            }
+            li:active{
+                background-color: rgb(119, 102, 102);
+
+            }
+        }
+    }
+}

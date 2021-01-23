@@ -1,0 +1,11 @@
+div.main-container{
+    display:flex;
+    .candidate-list{
+        flex-basis:30%;
+        max-height: 100vh;
+        overflow:scroll;
+    }
+    .container-detail-and-comments{
+        flex-basis:68%;
+    }
+}

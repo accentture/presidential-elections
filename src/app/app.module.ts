@@ -1,14 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms'
+
+
 import { AppComponent } from './app.component';
+
+
 import { CandidatesModule } from './candidates/candidates.module';
 import { CommentsModule } from './comments/comments.module';
 
+
+import { UserRegisterComponent } from './core/user-register.component';
+
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, CommentsModule, CandidatesModule, AppRoutingModule ],
+  declarations: [AppComponent, UserRegisterComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, CommentsModule, CandidatesModule, AppRoutingModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

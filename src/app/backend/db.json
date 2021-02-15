@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "names": "Jonathan",
+      "surnames": "Diaz Mollocondo",
+      "emailOrMobileNumber": "lordgelsin26@gmail.com",
+      "password": "ironman",
+      "dateOfBirth": "26/05/1996",
+      "gender": "masculino"
+    }
+  ]
+}

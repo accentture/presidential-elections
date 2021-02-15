@@ -6,9 +6,10 @@ import { CandidatesContainerComponent } from './candidates-container/candidates-
 import { CandidateListComponent } from './candidates-container/candidate-list.component';
 import { CandidateDetailComponent } from './candidates-container/candidate-detail.component';
 import { CommentsModule } from '../comments/comments.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [CandidatesContainerComponent, CandidateListComponent, CandidateDetailComponent],
-    imports: [CommonModule, CommentsModule, CandidatesRoutingModule],
+    imports: [CommonModule, CommentsModule, CandidatesRoutingModule, HttpClientModule],
 })
 export class CandidatesModule {}

@@ -12,11 +12,20 @@ export class CandidateListComponent implements OnInit {
     constructor(private renderCandidatesService: RenderCandidatesService) {}
 
     ngOnInit(): void {}
+
     displayDataDetailed(prenombresCandidate: string) {
         let candidate = this.candidates.filter(
             (candidate: Candidate) => candidate['Prenombres'] == prenombresCandidate
         );
         console.log(candidate[0]);
         this.renderCandidatesService.sendCandidate(candidate[0]);
+
+        this.demoFakeServer();
+    }
+
+    demoFakeServer() {
+        this.renderCandidatesService.connectWithFakeServer().subscribe((response) => {
+            console.log(response);
+        });
     }
 }

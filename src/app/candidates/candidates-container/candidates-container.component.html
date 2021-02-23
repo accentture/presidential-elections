@@ -1,7 +1,18 @@
 <div class="main-container">
-    <candidate-list class="candidate-list" [candidates]='candidates'></candidate-list>
-    <div class="container-detail-and-comments" >
-        <candidate-detail></candidate-detail>
-        <comments-container></comments-container>
-    </div>
+    <candidate-list class="candidate-list" [candidates]='candidates' (changeState)="updateState($event)" ></candidate-list>
+
+    <ng-container *ngIf="stateDetailContainer == 'displayPhoto'; then Photo else DetailAndComments"></ng-container>
+
+    <ng-template #Photo>
+        <div class="container-detail-and-comments" >
+            
+        </div>
+    </ng-template>
+
+    <ng-template #DetailAndComments>
+        <div class="container-detail-and-comments" >
+            <candidate-detail></candidate-detail>
+            <comments-container></comments-container>
+        </div>
+    </ng-template>
 </div>

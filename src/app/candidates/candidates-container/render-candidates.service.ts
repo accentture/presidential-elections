@@ -10,15 +10,11 @@ import { Observable } from 'rxjs';
 export class RenderCandidatesService {
     private renderCandidateSource = new Subject<Candidate>();
     renderCandidate$ = this.renderCandidateSource.asObservable();
-
-    private url: string = 'http://localhost:3000/users';
-
+    
     constructor(private http: HttpClient) {}
 
     sendCandidate(dataCandidate: Candidate) {
         this.renderCandidateSource.next(dataCandidate);
     }
-    connectWithFakeServer(): Observable<any> {
-        return this.http.get(this.url);
-    }
+
 }

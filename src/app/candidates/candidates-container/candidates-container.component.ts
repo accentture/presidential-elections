@@ -9,7 +9,16 @@ import { presidentialCandidates } from './candidates-mock';
 })
 export class CandidatesContainerComponent implements OnInit {
     candidates: Candidate[] = presidentialCandidates;
-    constructor() {}
+    stateDetailContainer: string;
+
+    constructor() {
+        this.stateDetailContainer = 'displayPhoto';
+    }
 
     ngOnInit(): void {}
+    updateState(currentState: boolean) {
+        if (currentState === true) {
+            this.stateDetailContainer = 'displayDetail';
+        }
+    }
 }

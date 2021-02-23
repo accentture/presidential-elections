@@ -1,7 +1,7 @@
 
 
 <div class="container-comments">
-    <div id="hearth-content">
+    <div id="hearth-content" (click)="obtainVote()">
         <div>
           <input type="checkbox" id="checkbox" value="yes"/>
           <label for="checkbox">
@@ -54,14 +54,24 @@
 
     <div class="box-questions">
         <ul>
-            <li><a  (click)="otherBoxOfComments('yes')">¿Porqué es tu favorito?</a></li>
-            <li><a  (click)="otherBoxOfComments('government')">¿Qué esperas de su gobierno?</a></li>
-            <li><a  (click)="otherBoxOfComments('no')">¿Porqué no es favorito?</a></li>
+            <li><a  (click)="changeBoxOfComments('favorite')">¿Porqué es tu favorito?</a></li>
+            <li><a  (click)="changeBoxOfComments('noFavorite')">¿Qué esperas de su gobierno?</a></li>
+            <li><a  (click)="changeBoxOfComments('aboutGobernment')">¿Porqué no es favorito?</a></li>
         </ul>
 
     </div>
 
-    <div>
-        <comments-about-yes-votes></comments-about-yes-votes>
-    </div>
+    <li [ngSwitch]="categoryComment" style="list-style: none;">
+        <ng-container *ngSwitchCase = "'favorite'">
+          <comments-favorite></comments-favorite>
+        </ng-container>
+
+        <ng-container *ngSwitchCase = "'noFavorite'">
+          <comments-no-favorite></comments-no-favorite>
+        </ng-container>
+
+        <ng-container *ngSwitchDefault>
+          <comments-about-government></comments-about-government>
+        </ng-container>
+    </li>
 </div>

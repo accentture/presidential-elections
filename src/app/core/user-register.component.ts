@@ -34,6 +34,7 @@ export class UserRegisterComponent implements OnInit {
     }
 
     ngOnInit(): void {}
+
     onSubmit(paramsFormContac: any) {
         this.user.dateOfBirth = `${this.birthday}-${this.monthOfBirthday}-${this.yearOfBirthday}`;
         this.userApiService.saveUser(this.user).subscribe(
@@ -46,7 +47,6 @@ export class UserRegisterComponent implements OnInit {
         );
 
         paramsFormContac.reset();
-
         this.status = 'success';
     }
 }

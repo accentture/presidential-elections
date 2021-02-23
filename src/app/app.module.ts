@@ -14,9 +14,10 @@ import { CommentsModule } from './comments/comments.module';
 
 
 import { UserRegisterComponent } from './core/user-register.component';
+import { UserLoginComponent } from './core/user-login.component';
 
 @NgModule({
-  declarations: [AppComponent, UserRegisterComponent],
+  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, CommentsModule, CandidatesModule, AppRoutingModule ],
   providers: [],
   bootstrap: [AppComponent],

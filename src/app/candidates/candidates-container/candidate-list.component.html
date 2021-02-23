@@ -1,4 +1,10 @@
 
-<ul *ngFor="let candidate of candidates">
-    <li><a (click)="displayDataDetailed(candidate['Prenombres'])">{{candidate['Prenombres']}} {{candidate['Primer apellido']}} {{candidate['Segundo apellido']}}</a></li>
+<ul *ngFor="let candidate of candidates; let i = index">
+    <li>
+        <a  [class]=" 'linkCandidate' + (i).toString()"  
+            (click)="loadDetailComponent()" 
+            (click)="displayDataDetailed(candidate['Prenombres'])">
+            {{candidate['Prenombres']}} {{candidate['Primer apellido']}} {{candidate['Segundo apellido']}}
+        </a>
+    </li>
 </ul>

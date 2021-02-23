@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CommentsService } from './comments.service';
+
+//app
+import { RenderCandidatesService } from './../../candidates/candidates-container/render-candidates.service';
+import { CommentsAndVotesService } from './comments-and-votes.service';
+import { Candidate } from 'src/app/candidates/candidates-container/candidate.interface';
 
 @Component({
     selector: 'comments-container',
@@ -7,11 +11,26 @@ import { CommentsService } from './comments.service';
     styleUrls: ['./comments-container.component.scss'],
 })
 export class CommentsContainerComponent implements OnInit {
-    constructor(private commentsService: CommentsService) {}
+    categoryComment: string = 'favorite';
+    candidate!: Candidate;
 
-    ngOnInit(): void {}
-
-    otherBoxOfComments(nameOfBox: string) {
-        this.commentsService.otherBoxOfComments(nameOfBox);
+    constructor(
+        private commentsAndVotesService: CommentsAndVotesService,
+        private renderCandidatesService: RenderCandidatesService
+    ) {}
+    ngOnInit(): void {
+        this.obtainCandidate();
+    }
+    obtainCandidate() {
+        this.renderCandidatesService.renderCandidate$.subscribe((response) => {
+            this.candidate = response;
+            console.log(this.candidate);
+        });
+    }
+    changeBoxOfComments(nameOfBox: string) {
+        this.categoryComment = nameOfBox;
+    }
+    obtainVote() {
+        this.commentsAndVotesService.checkUser(this.candidate['N°']);
     }
 }

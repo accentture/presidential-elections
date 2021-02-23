@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Candidate } from './candidate.interface';
 import { RenderCandidatesService } from './render-candidates.service';
 
@@ -7,25 +7,22 @@ import { RenderCandidatesService } from './render-candidates.service';
     templateUrl: './candidate-list.component.html',
     styleUrls: ['./candidate-list.component.scss'],
 })
-export class CandidateListComponent implements OnInit {
+export class CandidateListComponent implements OnInit, AfterViewInit {
     @Input() candidates!: Candidate[];
+    @Output() changeState = new EventEmitter<boolean>();
+
     constructor(private renderCandidatesService: RenderCandidatesService) {}
 
     ngOnInit(): void {}
-
+    ngAfterViewInit(): void {}
     displayDataDetailed(prenombresCandidate: string) {
         let candidate = this.candidates.filter(
             (candidate: Candidate) => candidate['Prenombres'] == prenombresCandidate
         );
-        console.log(candidate[0]);
+
         this.renderCandidatesService.sendCandidate(candidate[0]);
-
-        this.demoFakeServer();
     }
-
-    demoFakeServer() {
-        this.renderCandidatesService.connectWithFakeServer().subscribe((response) => {
-            console.log(response);
-        });
+    loadDetailComponent() {
+        this.changeState.emit(true);
     }
 }

@@ -1,0 +1,42 @@
+<div class="mainContainer">
+    <h2>Iniciar sesión</h2>
+
+    <form #formContact="ngForm" (ngSubmit)="getDataLogin(formContact)"  >
+
+        <div class="container boxEmailNumber" >
+            <input type="text" placeholder="Número de celular o email" name="emailOrMobileNumber"      
+                #emailOrMobileNumber="ngModel" 
+                [(ngModel)]="user.email" 
+                [ngModelOptions]="{standalone:false}" 
+                required 
+                [class.mandatory]="emailOrMobileNumber.touched && !emailOrMobileNumber.valid">
+            <svg fill="currentColor"  width="16px" height="16px" 
+                viewBox="0 0 24 24" 
+                [style.visibility]="emailOrMobileNumber.touched && !emailOrMobileNumber.valid ? 'visible': 'hidden' ">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+            </svg>
+        </div>
+        <div class="container boxPassword">
+            <input type="password" placeholder="Contraseña" name="password" #password="ngModel" [(ngModel)]="user.password" 
+                [ngModelOptions]="{standalone:false}" 
+                required 
+                [class.mandatory]="password.touched && !password.valid">
+            <svg fill="currentColor" width="16px" height="16px" 
+                viewBox="0 0 24 24" 
+                [style.visibility]="password.touched && !password.valid ? 'visible': 'hidden' ">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+            </svg>
+        </div>   
+        
+        <div class="container boxButton">
+            <input type="submit" value="Iniciar sesión" [disabled]="!formContact.form.valid">
+            
+        </div>
+
+    </form>
+
+        <div class="boxRegisterButton" >
+            <a [routerLink]="['/registro']">Registrarse</a>
+        </div>
+
+</div>

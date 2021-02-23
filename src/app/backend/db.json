@@ -1,13 +1,43 @@
 {
   "users": [
     {
-      "id": 1,
       "names": "Jonathan",
       "surnames": "Diaz Mollocondo",
       "emailOrMobileNumber": "lordgelsin26@gmail.com",
       "password": "ironman",
       "dateOfBirth": "26/05/1996",
-      "gender": "masculino"
+      "gender": "masculino",
+      "favorite": "3",
+      "id": 1
+    },
+    {
+      "names": "kabel",
+      "surnames": "diaz",
+      "emailOrMobileNumber": "lordgelsin27@gmail.com",
+      "password": "ironman",
+      "dateOfBirth": "3-3-1952",
+      "gender": "man",
+      "favorite": 2,
+      "id": 3
+    },
+    {
+      "names": "korah",
+      "surnames": "diaz",
+      "emailOrMobileNumber": "lordgelsin28@gmail.com",
+      "password": "ironman",
+      "dateOfBirth": "4-4-1950",
+      "gender": "man",
+      "favorite": 2,
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "categoryComment": 2,
+      "user_id": 3,
+      "parent": 0,
+      "candidate_id": 3,
+      "content": "Espero que gobierne bien"
     }
   ]
 }

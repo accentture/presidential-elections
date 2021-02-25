@@ -48,4 +48,14 @@ export class CommentsAndVotesService {
 
         return this.httpClient.patch(this.apiUrl + 'users/1', params, { headers: headers });
     }
+    obtainComments() {
+        let candidate = {
+            candidate_id: 1,
+        };
+        let params = JSON.stringify(candidate);
+
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this.httpClient.get(`${this.apiUrl}commet-collection/`);
+    }
 }

@@ -1,3 +1,3 @@
 export let GLOBAL = {
-    url: 'http://localhost:3000/',
+    url: 'http://127.0.0.1:8000/',
 };

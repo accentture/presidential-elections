@@ -14,25 +14,27 @@ import { UserLoginModel } from './user-login.model';
 export class UserApiService {
     private apiUrl: string = GLOBAL.url;
     private nameUserLocalStorage: string = 'data_user';
+    private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     constructor(private httpClient: HttpClient, private router: Router) {}
 
     saveUser(user: UserRegisterModel): Observable<any> {
         let params = JSON.stringify(user);
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this.httpClient.post(this.apiUrl + 'users', params, { headers: headers });
+        return this.httpClient.post(this.apiUrl + 'users', params, { headers: this.headers });
     }
     login(user: UserLoginModel) {
         let data = {
-            emailOrMobileNumber: user.email,
+            username: user.email,
             password: user.password,
         };
-
+        let params = JSON.stringify(data);
+        console.log(params);
         return this.httpClient
-            .get<any>(`${this.apiUrl}users/`, { params: data })
+            .post<any>(`${this.apiUrl}login-user/`, { params: params }, { headers: this.headers })
             .subscribe(
                 (response) => {
+                    console.log(response);
                     if (response[0] !== undefined) {
                         this.setUserLocalStorage(response[0]);
                         this.router.navigate(['/candidates']);

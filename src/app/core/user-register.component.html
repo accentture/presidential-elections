@@ -5,13 +5,27 @@
 
     <form #formContact="ngForm" (ngSubmit)="onSubmit(formContact)"  >
 
+        <!-- username -->
+        <div class="container boxUsername" >
+            <input type="text" placeholder="Nombre de usuario" name="username"      
+                #username="ngModel" 
+                [(ngModel)]="user.username" 
+                [ngModelOptions]="{standalone:false}" 
+                required 
+                [class.mandatory]="username.touched && !username.valid">
+            <svg fill="currentColor"  width="16px" height="16px" 
+                viewBox="0 0 24 24" 
+                [style.visibility]="username.touched && !username.valid ? 'visible': 'hidden' ">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+            </svg>
+        </div>
         <!-- names and surnames -->
         <div class="container boxNameAndSurname" #boxNameAndSurname >
             <div class="boxNames" >
                 <label for="names"></label>
                 <input type="text" placeholder="Nombres" name="names" #names="ngModel" 
                     [ngModelOptions]="{standalone:false}" 
-                    [(ngModel)]="user.names"      
+                    [(ngModel)]="user.first_name"      
                     pattern="[a-zA-Z]+"
                     [class.mandatory]="names.touched && !names.valid"
                     required
@@ -24,7 +38,7 @@
                 </svg>
             </div>
             <div class="boxSurnames">
-                <input type="text" placeholder="Apellidos" name="surnames" #surnames="ngModel" [(ngModel)]="user.surnames" 
+                <input type="text" placeholder="Apellidos" name="surnames" #surnames="ngModel" [(ngModel)]="user.last_name" 
                     [ngModelOptions]="{standalone:false}" 
                     pattern="[a-zA-Z]+" 
                     [class.mandatory]="surnames.touched && !surnames.valid"
@@ -40,15 +54,15 @@
         </div>
 
         <div class="container boxEmailNumber" >
-            <input type="text" placeholder="Número de celular o email" name="emailOrMobileNumber"      
-                #emailOrMobileNumber="ngModel" 
-                [(ngModel)]="user.emailOrMobileNumber" 
+            <input type="text" placeholder="Número de celular o email" name="email"      
+                #email="ngModel" 
+                [(ngModel)]="user.email" 
                 [ngModelOptions]="{standalone:false}" 
                 required 
-                [class.mandatory]="emailOrMobileNumber.touched && !emailOrMobileNumber.valid">
+                [class.mandatory]="email.touched && !email.valid">
             <svg fill="currentColor"  width="16px" height="16px" 
                 viewBox="0 0 24 24" 
-                [style.visibility]="emailOrMobileNumber.touched && !emailOrMobileNumber.valid ? 'visible': 'hidden' ">
+                [style.visibility]="email.touched && !email.valid ? 'visible': 'hidden' ">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
             </svg>
         </div>

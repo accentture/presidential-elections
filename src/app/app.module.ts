@@ -11,14 +11,17 @@ import { AppComponent } from './app.component';
 
 import { CandidatesModule } from './candidates/candidates.module';
 import { CommentsModule } from './comments/comments.module';
-
+import { ApracticingLazyLoadingModule } from './apracticing-lazy-loading/apracticing-lazy-loading.module';
 
 import { UserRegisterComponent } from './core/user-register.component';
 import { UserLoginComponent } from './core/user-login.component';
 
+
 @NgModule({
   declarations: [AppComponent, UserRegisterComponent, UserLoginComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, CommentsModule, CandidatesModule, AppRoutingModule ],
+
+  //all the Modules is added in the array of import
+  imports: [BrowserModule, FormsModule, HttpClientModule, CommentsModule, CandidatesModule, ApracticingLazyLoadingModule, AppRoutingModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

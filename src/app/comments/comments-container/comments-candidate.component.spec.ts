@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommentsFavoriteComponent } from './comments-favorite.component';
+import { CommentsCandidateComponent } from './comments-candidate.component';
 
-describe('CommentsAboutYesVotesComponent', () => {
-    let component: CommentsFavoriteComponent;
-    let fixture: ComponentFixture<CommentsFavoriteComponent>;
+describe('CommentsAboutNoVotesComponent', () => {
+    let component: CommentsCandidateComponent;
+    let fixture: ComponentFixture<CommentsCandidateComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [CommentsFavoriteComponent],
+            declarations: [CommentsCandidateComponent],
         }).compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(CommentsFavoriteComponent);
+        fixture = TestBed.createComponent(CommentsCandidateComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

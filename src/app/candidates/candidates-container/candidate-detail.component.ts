@@ -17,7 +17,6 @@ export class CandidateDetailComponent implements OnInit {
     obtainCandidate() {
         this.renderCandidatesService.renderCandidate$.subscribe((response) => {
             this.candidate = response;
-            console.log(this.candidate['Prenombres']);
         });
     }
 }

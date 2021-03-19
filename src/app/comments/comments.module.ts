@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; //ti module allows to use ngIf, ngFor, pipes
+import { FormsModule } from '@angular/forms';
 
 import { CommentsRoutingModule } from './comments-routing.module';
 import { CommentsContainerComponent } from './comments-container/comments-container.component';
-import { CommentsFavoriteComponent } from './comments-container/comments-favorite.component';
-import { CommentsNoFavoriteComponent } from './comments-container/comments-no-favorite.component';
-import { CommentsAboutGovernmentComponent } from './comments-container/comments-about-government.component';
+import { CommentsCandidateComponent } from './comments-container/comments-candidate.component';
 
 @NgModule({
-    declarations: [
-        CommentsContainerComponent,
-        CommentsFavoriteComponent,
-        CommentsNoFavoriteComponent,
-        CommentsAboutGovernmentComponent,
-    ],
-    imports: [CommonModule, CommentsRoutingModule],
+    declarations: [CommentsContainerComponent, CommentsCandidateComponent],
+    imports: [FormsModule, CommonModule, CommentsRoutingModule],
     exports: [CommentsContainerComponent],
 })
 export class CommentsModule {}

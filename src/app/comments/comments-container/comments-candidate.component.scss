@@ -1,0 +1,39 @@
+.container-comments{
+    padding-top:5px;
+    padding-bottom:12px;
+    background-color: #242526;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 45vh;
+    overflow: scroll;
+
+    .comment{
+        width:80%;
+        margin:0 auto;
+        margin-top:5px;
+        margin-bottom:5px;
+        background-color: #3a3b3c;
+        color:rgb(231, 216, 216);
+        padding:10px;
+        border-radius:10px;
+    }
+    
+    .boxWriteComment{
+        width:84%;
+        margin: 0 auto;
+
+        .inputComment{
+            width:96%;
+            height: 40px;
+            padding-left:10px;
+            border-radius: 25px;
+            background-color: #3a3b3c;
+            color:rgb(231, 216, 216);
+        }
+        .inputComment:focus{
+            outline: none;
+
+        }
+    }
+    
+}

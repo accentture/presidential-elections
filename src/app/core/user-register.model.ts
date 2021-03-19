@@ -1,10 +1,11 @@
 export class UserRegisterModel {
     constructor(
-        public names: string,
-        public surnames: string,
-        public emailOrMobileNumber: string,
+        public username: string,
+        public first_name: string,
+        public last_name: string,
+        public email: string,
         public password: any,
-        public dateOfBirth: any,
+        public birthday: any,
         public gender: string
     ) {}
 }

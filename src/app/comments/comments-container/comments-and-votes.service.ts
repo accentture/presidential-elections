@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 //app
 import { GLOBAL } from 'src/app/core/global';
@@ -9,12 +9,14 @@ import { GLOBAL } from 'src/app/core/global';
 })
 export class CommentsAndVotesService {
     private apiUrl: string = GLOBAL.url;
-    constructor(private httpClient: HttpClient) {}
+    private nameUserLocalStorage: string = 'data_user';
+
+    constructor(private http: HttpClient) {}
     checkUser(candidateId: string) {
-        let user = localStorage.getItem('data_user');
+        const user = this.getUserFromLocalStorage();
 
         if (user) {
-            this.saveVote(candidateId).subscribe(
+            this.saveVote(candidateId, user.user_profile.id).subscribe(
                 (response) => {
                     console.log(response);
                 },
@@ -23,39 +25,36 @@ export class CommentsAndVotesService {
                 }
             );
         }
-        console.log(user);
         return;
     }
-    saveVote(candidateId: string) {
-        console.log(candidateId);
-        let user = {
-            id: 1,
-            names: 'Jonathan',
-            surnames: 'Diaz Mollocondo',
-            emailOrMobileNumber: 'lordgelsin26@gmail.com',
-            password: 'ironman',
-            dateOfBirth: '26/05/1996',
-            gender: 'masculino',
-            favorite: candidateId,
-        };
-
-        let candidatefavorite = {
-            favorite: candidateId,
-        };
-
-        let params = JSON.stringify(candidatefavorite);
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-        return this.httpClient.patch(this.apiUrl + 'users/1', params, { headers: headers });
+    getUserFromLocalStorage() {
+        const user: any = JSON.parse(localStorage.getItem(this.nameUserLocalStorage) || '{}');
+        return user;
     }
-    obtainComments() {
-        let candidate = {
-            candidate_id: 1,
+    saveVote(candidateId: string, userId: number) {
+        //behavior of formData is equal to body of POSTMAN
+        const formData = new FormData();
+        formData.append('vote', candidateId);
+
+        //without headers
+        return this.http.patch(`${this.apiUrl}favorite-candidate/${userId}/`, formData);
+    }
+    obtainCommentsFromAPI(candidateId:number, category_comment: number | undefined) {
+        return this.http.get<any>(`${this.apiUrl}commet-collection/${candidateId}/${category_comment}/`);
+    }
+
+    saveComment(comment: string, candidateId: string, category_comment: number) {
+        const user = this.getUserFromLocalStorage();
+        const createComment = {
+            email: user.user.email,
+            candidate_id: candidateId,
+            content_comment: comment,
+            category_comment_id: category_comment,
         };
-        let params = JSON.stringify(candidate);
 
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        const params = JSON.stringify(createComment);
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this.httpClient.get(`${this.apiUrl}commet-collection/`);
+        return this.http.post(`${this.apiUrl}create-comment/`, params, { headers: headers });
     }
 }

@@ -188,15 +188,15 @@ svg{
                 list-style: none;
                 text-align: center;
                 background-color: black;
-                a{
-                    display:block;
-                    color:white;
-                    text-decoration: none;
-                }
+                color:white;
+
             }
             li:active{
                 background-color: rgb(119, 102, 102);
 
+            }
+            li.currentCategory{
+                background-color: brown;
             }
         }
     }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 //local
 import { UserRegisterModel } from './user-register.model';
-import { UserApiService } from './user-api.service';
+import { UserApiService } from './services/user-api.service';
 
 @Component({
     selector: 'app-user-register',
@@ -23,7 +23,7 @@ export class UserRegisterComponent implements OnInit {
     status: string = 'failed';
 
     constructor(private userApiService: UserApiService) {
-        this.user = new UserRegisterModel('', '', '', '', '', '');
+        this.user = new UserRegisterModel('', '', '', '', '', '', '');
         this.dayCollection = Array(31)
             .fill(0)
             .map((value, index) => index);
@@ -36,7 +36,7 @@ export class UserRegisterComponent implements OnInit {
     ngOnInit(): void {}
 
     onSubmit(paramsFormContac: any) {
-        this.user.dateOfBirth = `${this.birthday}-${this.monthOfBirthday}-${this.yearOfBirthday}`;
+        this.user.birthday = `${this.birthday}-${this.monthOfBirthday}-${this.yearOfBirthday}`;
         this.userApiService.saveUser(this.user).subscribe(
             (response) => {
                 console.log(response);

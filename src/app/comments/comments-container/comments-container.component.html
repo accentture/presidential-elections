@@ -51,27 +51,22 @@
         </div>
     </div>
     
-
-    <div class="box-questions">
+    <ng-container  >
+      <div class="box-questions">
         <ul>
-            <li><a  (click)="changeBoxOfComments('favorite')">¿Porqué es tu favorito?</a></li>
-            <li><a  (click)="changeBoxOfComments('noFavorite')">¿Qué esperas de su gobierno?</a></li>
-            <li><a  (click)="changeBoxOfComments('aboutGobernment')">¿Porqué no es favorito?</a></li>
+            <li class="boxCategoryByDefaut" (click)="commentsCandidate.getCollectionComment(1)" (click)="paintBoxCategory($event)" >¿Porqué es tu favorito?</li>
+            <li (click)="commentsCandidate.getCollectionComment(2)" (click)="paintBoxCategory($event)" >¿Qué esperas de su gobierno?</li>
+            <li (click)="commentsCandidate.getCollectionComment(3)" (click)="paintBoxCategory($event)" >¿Porqué no es favorito?</li>
         </ul>
+      </div>
 
-    </div>
+      <comments-candidate
+          *ngIf="candidate"
+          #commentsCandidate
+          [candidate]="candidate"
+            
+      ></comments-candidate>
+    </ng-container>
 
-    <li [ngSwitch]="categoryComment" style="list-style: none;">
-        <ng-container *ngSwitchCase = "'favorite'">
-          <comments-favorite></comments-favorite>
-        </ng-container>
-
-        <ng-container *ngSwitchCase = "'noFavorite'">
-          <comments-no-favorite></comments-no-favorite>
-        </ng-container>
-
-        <ng-container *ngSwitchDefault>
-          <comments-about-government></comments-about-government>
-        </ng-container>
-    </li>
+    
 </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 //local
-import { UserApiService } from './user-api.service';
+import { UserApiService } from './services/user-api.service';
 import { UserLoginModel } from './user-login.model';
 
 @Component({

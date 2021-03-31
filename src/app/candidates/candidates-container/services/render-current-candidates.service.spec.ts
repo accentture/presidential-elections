@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RenderCandidatesService } from './render-candidates.service';
+import { RenderCurrentCandidatesService } from './render-current-candidates.service';
 
 describe('BrotherComunicationService', () => {
-    let service: RenderCandidatesService;
+    let service: RenderCurrentCandidatesService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(RenderCandidatesService);
+        service = TestBed.inject(RenderCurrentCandidatesService);
     });
 
     it('should be created', () => {

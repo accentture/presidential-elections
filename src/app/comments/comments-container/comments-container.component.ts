@@ -1,8 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 //services
-import { RenderCandidatesService } from './../../candidates/candidates-container/render-candidates.service';
-import { CommentsAndVotesService } from './comments-and-votes.service';
+import { RenderCurrentCandidatesService } from '../../candidates/candidates-container/services/render-current-candidates.service';
 import { Candidate } from 'src/app/candidates/candidates-container/candidate.interface';
 
 @Component({
@@ -15,27 +14,31 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
 
     categoryComment: number = 1;
     candidate!: Candidate;
+    namesLastCandidateViewed: any;
     lastCategoryBox!: ElementRef | any;
 
-    constructor(
-        private commentsAndVotesService: CommentsAndVotesService,
-        private renderCandidatesService: RenderCandidatesService
-    ) {}
+    constructor(private renderCandidatesService: RenderCurrentCandidatesService) {}
     ngOnInit(): void {}
     ngAfterViewInit() {
         this.obtainCandidate();
     }
     obtainCandidate() {
-        this.renderCandidatesService.renderCandidate$.subscribe((response) => {
+        this.renderCandidatesService.renderCandidate$.subscribe((response: Candidate) => {
             this.candidate = response;
-            this.paintBoxCategory();
+
+            this.paintBoxCategory(false, response.names);
+            this.settingLastCandidateClicked(response);
         });
         return;
     }
-    obtainVote() {
-        this.commentsAndVotesService.checkUser(this.candidate['id']);
+    settingLastCandidateClicked(response: Candidate | any) {
+        if (this.namesLastCandidateViewed == undefined || this.namesLastCandidateViewed !== response['Prenombres']) {
+            this.namesLastCandidateViewed = response.names;
+        }
+        return;
     }
-    paintBoxCategory(event?: any) {
+
+    paintBoxCategory(event?: any, namesCandidate?: string) {
         if (this.lastCategoryBox) {
             this.lastCategoryBox.classList.remove('currentCategory');
         }
@@ -44,11 +47,17 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
         if (event) {
             this.lastCategoryBox = event.target;
         } else {
-            this.paintBoxCategoryByDefaut();
+            this.paintBoxCategoryByDefaut(namesCandidate);
         }
         this.lastCategoryBox.classList.add('currentCategory');
+        return;
     }
-    paintBoxCategoryByDefaut() {
-        this.lastCategoryBox = document.querySelector('.boxCategoryByDefaut');
+    paintBoxCategoryByDefaut(namesCandidate?: string) {
+        //checking if  candidate never was not clicked  or the last candidate was not clicked again
+        if (this.namesLastCandidateViewed === undefined || this.namesLastCandidateViewed !== namesCandidate) {
+            const categoryByDefault = document.querySelector('.boxCategoryByDefaut');
+            this.lastCategoryBox = categoryByDefault;
+        }
+        return;
     }
 }

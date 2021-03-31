@@ -4,9 +4,10 @@
     background-color: #242526;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    height: 45vh;
+    height: 46vh;
     overflow: scroll;
-
+    overflow-x: hidden;
+    
     .comment{
         width:80%;
         margin:0 auto;
@@ -16,6 +17,11 @@
         color:rgb(231, 216, 216);
         padding:10px;
         border-radius:10px;
+        
+        .content-comment{
+            padding-left:7px;
+            overflow-wrap: break-word;
+        }
     }
     
     .boxWriteComment{

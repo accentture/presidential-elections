@@ -5,7 +5,6 @@ export class UserRegisterModel {
         public last_name: string,
         public email: string,
         public password: any,
-        public birthday: any,
         public gender: string
     ) {}
 }

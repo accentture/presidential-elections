@@ -1,13 +1,15 @@
 <div *ngIf="candidate" class="container-candidate-detail">
     <div class="box-image">
-        <img src="" alt="">
+        <img [src]="candidate.photo" alt="">
     </div>
-    <div class="data-candidate">
-        <p><strong>Nombres: </strong>{{candidate['Prenombres']}}</p>
-        <p><strong>Apellidos: </strong>{{candidate['Primer apellido']}} {{candidate['Segundo apellido']}}</p>
-        <p><strong>Formación: </strong></p>
-        <p><strong>Edad: </strong></p>
-        <p><strong>Trayectoria profesional: </strong> </p>
-        <p><strong>Partido político: </strong> </p>
+    <div class="data-candidate-container">
+        <p><strong>NOMBRES: </strong><span class="information-candidate">{{candidate.names}}</span></p>
+        <p><strong>APELLIDOS: </strong><span class="information-candidate">{{candidate.surnames}}</span></p>
+        <p><strong>FORMACIÓN ALCANZADA: </strong><span class="information-candidate">{{candidate.education}}</span></p>
+        <p><strong>PAIS DE NACIMIENTO: </strong><span class="information-candidate">{{candidate.country}}</span></p>
+        <!-- <p><strong>Trayectoria profesional: </strong> </p> -->
+        <p><strong>PARTIDO POLÍTICO: </strong><span class="information-candidate">{{candidate.political_party}}</span></p>
     </div>
 </div>
+
+

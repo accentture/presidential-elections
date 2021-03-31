@@ -11,32 +11,16 @@ import { UserApiService } from './services/user-api.service';
 })
 export class UserRegisterComponent implements OnInit {
     user: UserRegisterModel;
-
-    dayCollection: number[] = [];
-    yearCollection: number[] = [];
-
-    //to create date of birth
-    birthday: number = 0;
-    monthOfBirthday: string = 'Mes';
-    yearOfBirthday: number = 1950;
-
     status: string = 'failed';
 
     constructor(private userApiService: UserApiService) {
-        this.user = new UserRegisterModel('', '', '', '', '', '', '');
-        this.dayCollection = Array(31)
-            .fill(0)
-            .map((value, index) => index);
-
-        this.yearCollection = Array(61)
-            .fill(1950)
-            .map((value, index) => (value += index++));
+        this.user = new UserRegisterModel('', '', '', '', '', '');
     }
 
     ngOnInit(): void {}
 
     onSubmit(paramsFormContac: any) {
-        this.user.birthday = `${this.birthday}-${this.monthOfBirthday}-${this.yearOfBirthday}`;
+        //this.user.birthday = `${this.birthday}-${this.monthOfBirthday}-${this.yearOfBirthday}`;
         this.userApiService.saveUser(this.user).subscribe(
             (response) => {
                 console.log(response);

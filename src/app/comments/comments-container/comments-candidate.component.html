@@ -2,15 +2,14 @@
 <div class="container-comments">
     <div class="commentCollection" #boxCommentCollection>
         <div class="comment" *ngFor="let comment of commentCollection">
-            <div>{{comment.comment_of_user[0].user.username}}</div>
-            <div>{{comment.content}}</div>
+            <div>{{comment.comment_of_user[0].user.username | uppercase}}</div>
+            <div class="content-comment">{{comment.content}}</div>
         </div>
     </div>
 
     <div class="boxWriteComment">
         <input type="text" class="inputComment" placeholder="Escribe un comentario" #inputComment #boxAddComment="ngModel" [(ngModel)]="commentUser" (keyup.enter)="saveComment()">
-    </div>
-    
+    </div> 
 </div>
 
 

@@ -1,11 +1,11 @@
 export interface Candidate {
-    'Distrito Electoral': string;
-    'Organización Política': string;
-    'Tipo Organización Política': string;
-    Cargo: string;
-    id: string;
-    'Primer apellido': string;
-    'Segundo apellido': string;
-    Prenombres: string;
-    Sexo: string;
+    id: number;
+    names: string;
+    surnames: string;
+    education: string;
+    country: string;
+    career_path: string;
+    political_party: string;
+    photo: string;
+    photo_political_party: string;
 }

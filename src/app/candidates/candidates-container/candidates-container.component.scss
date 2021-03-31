@@ -4,8 +4,10 @@ div.main-container{
         flex-basis:30%;
         max-height: 100vh;
         overflow:scroll;
+        overflow-x: hidden;
     }
     .container-detail-and-comments{
-        flex-basis:68%;
+        flex-basis:60%;
+        margin:0 auto;
     }
 }

@@ -15,10 +15,10 @@ import { ApracticingLazyLoadingModule } from './apracticing-lazy-loading/apracti
 
 import { UserRegisterComponent } from './core/user-register.component';
 import { UserLoginComponent } from './core/user-login.component';
-
+import { UserLogoutComponent } from './core/user-logout.component';
 
 @NgModule({
-  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent],
+  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, UserLogoutComponent],
 
   //all the Modules is added in the array of import
   imports: [BrowserModule, FormsModule, HttpClientModule, CommentsModule, CandidatesModule, ApracticingLazyLoadingModule, AppRoutingModule ],

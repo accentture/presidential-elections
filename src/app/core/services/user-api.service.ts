@@ -28,19 +28,9 @@ export class UserApiService {
         formData.append('email', user.email);
         formData.append('password', user.password);
 
-        return this.httpClient.post<any>(`${this.apiUrl}login-user/`, formData).subscribe(
-            (response) => {
-                if (response !== undefined) {
-                    this.setUserLocalStorage(response);
-                    this.router.navigate(['/candidates']);
-                }
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
+        return this.httpClient.post<any>(`${this.apiUrl}login-user/`, formData);
     }
-    setUserLocalStorage(dataUser: object) {
+    saveUserLocalStorage(dataUser: object) {
         localStorage.setItem(this.nameUserLocalStorage, JSON.stringify(dataUser));
     }
 }

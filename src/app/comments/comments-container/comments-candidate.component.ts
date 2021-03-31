@@ -22,14 +22,12 @@ export class CommentsCandidateComponent implements OnChanges {
         this.getCollectionComment(1); //category comment by default = 1
     }
     getCollectionComment(categoryComment: number | any) {
-        console.log(this.candidate.id);
         this.categoryComment = categoryComment;
         this.commentsAndVotesService.obtainCommentsFromAPI(this.candidate.id, categoryComment).subscribe(
             (response) => {
                 this.commentCollection = response;
 
                 if (this.commentsAdded > 0) {
-                    console.log(this.commentsAdded);
                     this.removeCommentsOfOtherCategory();
                 }
             },
@@ -45,7 +43,6 @@ export class CommentsCandidateComponent implements OnChanges {
                 .saveComment(this.commentUser!, this.candidate.id, this.categoryComment)
                 .subscribe(
                     (response) => {
-                        console.log(response);
                         this.addLastCommentAdded(response);
                         this.cleanInputComment();
                         this.commentsAdded++; //count number of comments added in a specific category

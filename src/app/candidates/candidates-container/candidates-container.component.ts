@@ -1,6 +1,6 @@
+import { CandidatesService } from './services/candidates.service';
 import { Component, OnInit } from '@angular/core';
 import { Candidate } from './candidate.interface';
-import { presidentialCandidates } from './candidates-mock';
 
 @Component({
     selector: 'candidates-container',
@@ -8,14 +8,27 @@ import { presidentialCandidates } from './candidates-mock';
     styleUrls: ['./candidates-container.component.scss'],
 })
 export class CandidatesContainerComponent implements OnInit {
-    candidates: Candidate[] = presidentialCandidates;
+    candidates?: Candidate[];
     stateDetailContainer: string;
 
-    constructor() {
+    constructor(private candidatesService: CandidatesService) {
         this.stateDetailContainer = 'displayPhoto';
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.obtainCandidates();
+    }
+    obtainCandidates() {
+        this.candidatesService.getCandidates().subscribe(
+            (response: Candidate[]) => {
+                console.log(response);
+                this.candidates = response;
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+    }
     updateState(currentState: boolean) {
         if (currentState === true) {
             this.stateDetailContainer = 'displayDetail';

@@ -10,6 +10,7 @@ import { GLOBAL } from 'src/app/core/global';
 export class CommentsAndVotesService {
     private apiUrl: string = GLOBAL.url;
     private nameUserLocalStorage: string = 'data_user';
+    private lastVoteLocalStorage: string = 'last_vote_id';
 
     constructor(private http: HttpClient) {}
     checkUser(candidateId: string) {
@@ -17,8 +18,11 @@ export class CommentsAndVotesService {
 
         if (user) {
             this.saveVote(candidateId, user.user_profile.id).subscribe(
-                (response) => {
+                (response: Object | any) => {
                     console.log(response);
+                    if (response.vote) {
+                        this.saveLastVoteInLocalStorage(response.vote);
+                    }
                 },
                 (error) => {
                     console.log(error);
@@ -26,6 +30,18 @@ export class CommentsAndVotesService {
             );
         }
         return;
+    }
+    private saveLastVoteInLocalStorage(lastVoteId: number) {
+        const previousVote = JSON.parse(localStorage.getItem(this.lastVoteLocalStorage) || '{}');
+        console.log(previousVote);
+        if (previousVote !== '{}') {
+            localStorage.removeItem(this.lastVoteLocalStorage);
+        }
+        localStorage.setItem(this.lastVoteLocalStorage, JSON.stringify(lastVoteId));
+    }
+    getLastVoteFromLocalStorage() {
+        const lastVote: any = JSON.parse(localStorage.getItem(this.lastVoteLocalStorage) || '{}');
+        return lastVote;
     }
     getUserFromLocalStorage() {
         const user: any = JSON.parse(localStorage.getItem(this.nameUserLocalStorage) || '{}');
@@ -39,7 +55,7 @@ export class CommentsAndVotesService {
         //without headers
         return this.http.patch(`${this.apiUrl}favorite-candidate/${userId}/`, formData);
     }
-    obtainCommentsFromAPI(candidateId:number, category_comment: number | undefined) {
+    obtainCommentsFromAPI(candidateId: number, category_comment: number | undefined) {
         return this.http.get<any>(`${this.apiUrl}commet-collection/${candidateId}/${category_comment}/`);
     }
 

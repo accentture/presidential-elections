@@ -54,7 +54,7 @@
         </div>
 
         <div class="container boxEmailNumber" >
-            <input type="text" placeholder="Número de celular o email" name="email"      
+            <input type="text" placeholder="Correo electrónico" name="email"      
                 #email="ngModel" 
                 [(ngModel)]="user.email" 
                 [ngModelOptions]="{standalone:false}" 
@@ -77,44 +77,6 @@
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
             </svg>
         </div>  
-
-        <!-- date of birth -->
-        <div class="container boxBirthdate">
-            <div>
-                <label for="">Cumpleaños</label>
-                <svg fill="currentColor"  width="16px" height="16px" 
-                viewBox="0 0 24 24" 
-                *ngIf="(day.touched && !day.valid) || (month.touched && !month.valid) || (year.touched && !year.valid)">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
-                </svg>
-            </div>
-            <select name="day" #day="ngModel" [(ngModel)]=birthday [ngModelOptions]="{standalone:false}" required>
-                <option value="0">Dia</option>
-                <option *ngFor="let day of dayCollection" value="{{day + 1}}">{{day + 1}}</option>
-            </select>
-    
-            <select name="month" #month="ngModel" [(ngModel)]="monthOfBirthday" [ngModelOptions]="{standalone:false}" required>
-                <option value="0">Mes</option>
-                <option value="1">Enero</option>
-                <option value="1">Enero</option>
-                <option value="2">Febrero</option>
-                <option value="3">Marzo</option>
-                <option value="4">Abril</option>
-                <option value="5">Mayo</option>
-                <option value="6">Junio</option>
-                <option value="7">Julio</option>
-                <option value="8">Agosto</option>
-                <option value="9">Septiembre</option>
-                <option value="10">Octubre</option>
-                <option value="11">Noviembre</option>
-                <option value="12">Diciembre</option>
-            </select>
-    
-            <select name="year" #year="ngModel" [(ngModel)]="yearOfBirthday" [ngModelOptions]="{standalone:false}" required>
-                <option value="0">Año</option>
-                <option *ngFor="let year of yearCollection" value="{{year}}">{{year}}</option>
-            </select>
-        </div>
 
         <!-- gender -->
         <div class="container boxGender">

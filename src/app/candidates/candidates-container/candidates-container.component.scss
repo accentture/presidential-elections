@@ -2,7 +2,7 @@ div.main-container{
     display:flex;
     .candidate-list{
         flex-basis:30%;
-        max-height: 100vh;
+        max-height: 104vh;
         overflow:scroll;
         overflow-x: hidden;
     }
@@ -11,3 +11,48 @@ div.main-container{
         margin:0 auto;
     }
 }
+@media(max-width: 1085px){
+    div.main-container{
+
+        .candidate-list{
+            flex-basis:35%;
+
+        }
+        .container-detail-and-comments{
+            flex-basis:65%;
+        }
+    }
+}
+@media(max-width: 591px){
+    div.main-container{
+        .candidate-list{
+            max-height: 123vh;
+        }
+    }
+}
+@media(max-width: 574px){
+    div.main-container{
+        .candidate-list{
+            max-height: 140vh;
+        }
+    }
+}
+@media(max-width: 387px){
+    div.main-container{
+        .candidate-list{
+            max-height: 133vh;
+        }
+    }
+}
+@media(max-width: 367px){
+    div.main-container{
+        .candidate-list{
+            max-height: 137vh;
+        }
+    }
+}
+
+
+
+
+

@@ -14,11 +14,33 @@ header{
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
         background-color: rgb(11, 22, 68);
         color:rgb(241, 226, 226);
     }
     .user-logout-component{
         flex-basis: 77px;
         height: 70px;
+    }
+}
+@media(max-width:651px){
+    header{
+        h1{
+            font-size: 27px;
+        }
+    }
+}
+@media(max-width:400px){
+    header{
+        h1{
+            font-size: 23px;
+        }
+    }
+}
+@media(max-width:318px){
+    header{
+        h1{
+            font-size: 21px;
+        }
     }
 }

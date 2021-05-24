@@ -1,2 +1,2 @@
-<img [src]="imageForLogout" alt="" (click)="sendLogout()">
-<div class="button-close-session">Cerrar sesion</div>
+<img #imageLogout [src]="imageForLogout" alt=""  (click)="showCloseSesionButton()">
+<div #closeSessionButton class="button-close-session" (click)="sendLogout()">Cerrar sesion</div>

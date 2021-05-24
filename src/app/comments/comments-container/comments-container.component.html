@@ -1,18 +1,18 @@
 
 
-<div class="container-comments">
+<div class="container-comments" >
     <vote-candidate *ngIf="candidate" [candidate]="candidate"></vote-candidate>  
 
     <div class="box-questions">
-      <ul>
-          <li class="boxCategoryByDefaut" (click)="commentsCandidate.getCollectionComment(1)" (click)="paintBoxCategory($event)" >¿Porqué es tu favorito?</li>
-          <li (click)="commentsCandidate.getCollectionComment(2)" (click)="paintBoxCategory($event)" >¿Qué esperas de su gobierno?</li>
-          <li (click)="commentsCandidate.getCollectionComment(3)" (click)="paintBoxCategory($event)" >¿Porqué no es favorito?</li>
-      </ul>
+        <ul>
+            <li class="boxCategoryByDefaut" (click)="commentsCandidate.getCollectionComment(1)" (click)="paintBoxCategory($event)" >¿Porqué es tu favorito?</li>
+            <li (click)="commentsCandidate.getCollectionComment(2)" (click)="paintBoxCategory($event)" >¿Qué esperas de su gobierno?</li>
+            <li (click)="commentsCandidate.getCollectionComment(3)" (click)="paintBoxCategory($event)" >¿Porqué no es favorito?</li>
+        </ul>
     </div>
 
     <comments-candidate
-        *ngIf="candidate"
+    *ngIf="candidate"
         #commentsCandidate
         [candidate]="candidate"
     ></comments-candidate>   

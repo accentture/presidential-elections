@@ -74,3 +74,4 @@ export class CommentsAndVotesService {
         return this.http.post(`${this.apiUrl}create-comment/`, params, { headers: headers });
     }
 }
+

@@ -10,8 +10,11 @@
     background-color: #242526;
     border-radius: 10px;
     
+}
+
+.container-candidate-detail{
     .box-image{
-        width: 35%;
+        flex-basis: 35%;
         height: 94%;
         
         img{
@@ -20,9 +23,12 @@
             border-radius: 5px;
         }
     }
+}
+
+.container-candidate-detail{
     .data-candidate-container{
-        width:48%;
-        font-size: 20px;
+        flex-basis:51%;
+        font-size: 19px;
         color:white;
         span.information-candidate{
             font-size: 77%;
@@ -30,3 +36,91 @@
     }
     
 }
+@media(max-width:957px){
+    .container-candidate-detail{
+        .data-candidate-container{
+            font-size: 17px;
+
+        }
+    }
+}
+@media(max-width:790px){
+    .container-candidate-detail{
+        .box-image{
+            flex-basis: 38%;
+            height: 74%;
+        }
+    }
+}
+@media(max-width:757px){
+    .container-candidate-detail{
+        .data-candidate-container{
+            font-size: 16px;
+        }
+    }
+}
+
+@media(max-width:646px){
+    .container-candidate-detail{
+        .box-image{
+            flex-basis: 46%;
+            height: 76%;
+        }
+    }
+}
+
+@media(max-width:591px){
+    .container-candidate-detail{
+        flex-direction: column;
+        height: auto;
+        .box-image{
+            width: 65%;
+            height: 174px;
+            margin:15px;
+        }
+    }
+    .container-candidate-detail{
+        .data-candidate-container{
+            font-size: 15px;
+            width: 89%;
+            text-align: center;
+            span.information-candidate{
+                font-size: 89%;
+            }
+        }
+        
+    }
+}
+@media(max-width:591px){
+    .container-candidate-detail{
+        .box-image{
+            width: 72%;
+
+        }
+    }
+
+}
+@media(max-width:464px){
+    .container-candidate-detail{
+        .box-image{
+            width: 90%;
+
+        }
+    }
+}
+@media(max-width:387px){
+    .container-candidate-detail{
+        .box-image{
+            width: 90%;
+            height: 152px;
+            margin:10px;
+        }
+    }
+
+}
+
+
+
+
+
+

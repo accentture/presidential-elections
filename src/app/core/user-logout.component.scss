@@ -12,10 +12,15 @@ div.button-close-session{
     top: 70px;
     background-color: #d3d306;
     border-radius: 4px;
+    visibility: hidden;
     transition: 300ms;
+    cursor:pointer;
 }
 div.button-close-session:hover{
     background-color: #fcfc00;   
+}
+div.showButton{
+    visibility: visible;
 }
 
 

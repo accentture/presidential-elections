@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint", 
     "e2e": "ng e2e",
-    "backend":"json-server --watch ./src/app/backend/db.json"
+    "backend":"json-server --watch ./src/app/backend/db.json",
+    "nghm":"node --max_old_space_size=3072 ./node_modules/@angular/cli/bin/ng"
   },
   "private": true,
   "dependencies": {

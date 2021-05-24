@@ -36,4 +36,7 @@ export class AppModule {}
     folder structure in angular: https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7
 
     to generate models in angular https://www.codegrepper.com/code-examples/typescript/generate+model+in+angular
+
+    --to compilate more faster : https://betterprogramming.pub/how-to-speed-up-angular-development-and-reduce-compilation-times-a32262d478bc
 */
+//npm run nghm -- serve

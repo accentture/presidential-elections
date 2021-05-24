@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
     }
     updateStateLogin(data?: any) {
         this.userLoged = data;
+        this.stateUserService.removeLoginFromLocalStorage();
         this.router.navigate(['/iniciar-sesion']);
     }
 }

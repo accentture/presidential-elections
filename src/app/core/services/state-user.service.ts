@@ -12,4 +12,11 @@ export class StateUserService {
     updateStateUser() {
         this.updateCandidateSource.next(true);
     }
+    removeLoginFromLocalStorage() {
+        localStorage.removeItem('data_user');
+        this.remoteActivityFromLocalStorage();
+    }
+    remoteActivityFromLocalStorage() {
+        localStorage.removeItem('last_vote_id');
+    }
 }

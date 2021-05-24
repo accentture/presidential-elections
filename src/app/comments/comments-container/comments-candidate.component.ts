@@ -59,10 +59,11 @@ export class CommentsCandidateComponent implements OnChanges {
         boxComment.classList.add('comment');
 
         const userCommentBox = this.renderer.createElement('div');
+        userCommentBox.classList.add('content-comment');
         userCommentBox.innerHTML = dataComment.comment.content;
 
         const contentCommentBox = this.renderer.createElement('div');
-        contentCommentBox.innerHTML = dataComment.user.first_name;
+        contentCommentBox.innerHTML = dataComment.user.first_name.toUpperCase();
 
         this.renderer.appendChild(boxComment, contentCommentBox);
         this.renderer.appendChild(boxComment, userCommentBox);

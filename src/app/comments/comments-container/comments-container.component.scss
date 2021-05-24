@@ -5,7 +5,10 @@
     margin:0 auto;
     background-color: #242526;
     border-radius:9px;
+}
 
+
+.container-comments{
     .box-questions{
         width: 100%;
         ul{
@@ -16,8 +19,15 @@
             background-color: rgb(29, 27, 27);
             padding:4px;
             border-radius:5px;
+        }
+
+    }
+}
+
+.container-comments{
+    .box-questions{
             li{
-                width: 29%;
+                flex-basis: 29%;
                 height: 36px;
                 padding:4px;
                 display: flex;
@@ -37,6 +47,27 @@
             li.currentCategory{
                 background-color: rgb(9, 136, 9);
             }
+    }
+}
+
+@media(max-width:574px){
+    .container-comments{
+        .box-questions{
+            width: 100%;
+            ul{
+                flex-direction: column;
+                li{
+                    padding:14px;
+                    flex-grow: 1;
+
+                }
+            }
+    
         }
     }
 }
+
+
+
+
+

@@ -8,7 +8,7 @@ import { Candidate } from './candidate.interface';
     styleUrls: ['./candidates-container.component.scss'],
 })
 export class CandidatesContainerComponent implements OnInit {
-    candidates?: Candidate[];
+    candidates!: Candidate[];
     stateDetailContainer: string;
 
     constructor(private candidatesService: CandidatesService) {

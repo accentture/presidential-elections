@@ -22,7 +22,7 @@ const routes: Routes = [
                 (m) => m.ApracticingLazyLoadingModule
             ),
     },
-    { path: '**', redirectTo: 'iniciar-sesion' },
+    { path: '*', redirectTo: 'iniciar-sesion' },
 ];
 
 @NgModule({

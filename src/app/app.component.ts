@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
         this.checkUserInLocalStorage();
     }
     checkUserInLocalStorage() {
-        const user = JSON.parse(localStorage.getItem('data_user') || '{}').user.email;
+        console.log(JSON.parse(localStorage.getItem('data_user') || '{}').user)
+        const user = JSON.parse(localStorage.getItem('data_user') || '{}').user;
         if (user) {
             this.userLoged = true;
         }

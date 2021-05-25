@@ -21,7 +21,7 @@ import { UserLogoutComponent } from './core/user-logout.component';
   declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, UserLogoutComponent],
 
   //all the Modules is added in the array of import
-  imports: [BrowserModule, FormsModule, HttpClientModule, CommentsModule, CandidatesModule, ApracticingLazyLoadingModule, AppRoutingModule ],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, CommentsModule, CandidatesModule, ApracticingLazyLoadingModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

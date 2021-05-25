@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 //services
 import { RenderCurrentCandidatesService } from '../../candidates/candidates-container/services/render-current-candidates.service';
@@ -17,8 +17,11 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
     namesLastCandidateViewed: any;
     lastCategoryBox!: ElementRef | any;
 
-    constructor(private renderCandidatesService: RenderCurrentCandidatesService) {}
-    ngOnInit(): void {}
+    constructor(
+        private renderCandidatesService: RenderCurrentCandidatesService,
+        private renderer: Renderer2
+    ) { }
+    ngOnInit(): void { }
     ngAfterViewInit() {
         this.obtainCandidate();
     }
@@ -26,8 +29,10 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
         this.renderCandidatesService.renderCandidate$.subscribe((response: Candidate) => {
             this.candidate = response;
 
-            this.paintBoxCategory(false, response.names);
-            this.settingLastCandidateClicked(response);
+            setTimeout(() => {
+                this.paintBoxCategory(false, response.names);
+                this.settingLastCandidateClicked(response);
+            },0)
         });
         return;
     }
@@ -56,6 +61,7 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
         //checking if  candidate never was not clicked  or the last candidate was not clicked again
         if (this.namesLastCandidateViewed === undefined || this.namesLastCandidateViewed !== namesCandidate) {
             const categoryByDefault = document.querySelector('.boxCategoryByDefaut');
+            console.log(categoryByDefault)
             this.lastCategoryBox = categoryByDefault;
         }
         return;

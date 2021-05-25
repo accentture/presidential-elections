@@ -1,6 +1,6 @@
 
 
-<div class="container-comments" >
+<div class="container-comments" *ngIf="candidate">
     <vote-candidate *ngIf="candidate" [candidate]="candidate"></vote-candidate>  
 
     <div class="box-questions">
@@ -12,7 +12,7 @@
     </div>
 
     <comments-candidate
-    *ngIf="candidate"
+    
         #commentsCandidate
         [candidate]="candidate"
     ></comments-candidate>   

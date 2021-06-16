@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommentsCandidateComponent } from './comments-candidate.component';
 
-describe('CommentsAboutNoVotesComponent', () => {
+xdescribe('CommentsAboutNoVotesComponent', () => {
     let component: CommentsCandidateComponent;
     let fixture: ComponentFixture<CommentsCandidateComponent>;
 
@@ -22,3 +22,4 @@ describe('CommentsAboutNoVotesComponent', () => {
         expect(component).toBeTruthy();
     });
 });
+ */

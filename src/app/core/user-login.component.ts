@@ -7,6 +7,7 @@ import { UserLoginModel } from './user-login.model';
 
 //service
 import { StateUserService } from './services/state-user.service';
+import { UserResponse } from './interfaces/user-response.interface';
 
 @Component({
     selector: 'app-user-login',
@@ -26,9 +27,10 @@ export class UserLoginComponent implements OnInit {
     }
 
     ngOnInit(): void {}
-    getDataForLogin(paramsFormContac: any) {
+    getDataForLogin(paramsFormContact: any) {
         this.userApiService.login(this.user).subscribe(
-            (response) => {
+            (response: UserResponse) => {
+
                 if (response.message == 'Correct authentication') {
                     this.userApiService.saveUserLocalStorage(response);
                     this.router.navigate(['/candidates']);
@@ -39,7 +41,7 @@ export class UserLoginComponent implements OnInit {
                 console.log(error);
             }
         );
-        paramsFormContac.reset();
+        paramsFormContact.reset();
     }
     createLoginUser() {
         this.stateUserService.updateStateUser();

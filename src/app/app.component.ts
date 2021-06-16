@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserResponse } from './core/interfaces/user-response.interface';
 
 //service
 import { StateUserService } from './core/services/state-user.service';
+import { UserApiService } from './core/services/user-api.service';
 
 @Component({
     selector: 'app-root',
@@ -13,22 +15,26 @@ export class AppComponent implements OnInit {
     title = 'presidentialElection';
     userLoged: any = false;
 
-    constructor(private router: Router, private stateUserService: StateUserService) {}
+    constructor(
+        private router: Router, 
+        private stateUserService: StateUserService,
+        private userApiService:UserApiService) {}
     ngOnInit() {
-        this.stateUserService.updateStateUser$.subscribe((response: boolean) => {
+        this.toLogUser()
+        this.isUserLoged();
+    }
+    toLogUser(){
+        this.stateUserService.stateUserUpdated().subscribe((response: boolean) => {
             this.userLoged = response;
         });
-        this.checkUserInLocalStorage();
     }
-    checkUserInLocalStorage() {
-        console.log(JSON.parse(localStorage.getItem('data_user') || '{}').user)
-        const user = JSON.parse(localStorage.getItem('data_user') || '{}').user;
-        if (user) {
-            this.userLoged = true;
-        }
+    isUserLoged(){
+        const user:UserResponse = this.userApiService.checkUserInLocalStorage()
+        if (user) this.userLoged = true;
     }
-    updateStateLogin(data?: any) {
-        this.userLoged = data;
+    
+    closeSession(newStateUser: boolean) {
+        this.userLoged = newStateUser;
         this.stateUserService.removeLoginFromLocalStorage();
         this.router.navigate(['/iniciar-sesion']);
     }

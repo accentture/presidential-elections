@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+/* import { TestBed } from '@angular/core/testing';
 
 import { RenderCurrentCandidatesService } from './render-current-candidates.service';
 
@@ -14,3 +14,4 @@ describe('BrotherComunicationService', () => {
         expect(service).toBeTruthy();
     });
 });
+ */

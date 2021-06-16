@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,12 +16,18 @@ import { ApracticingLazyLoadingModule } from './apracticing-lazy-loading/apracti
 import { UserRegisterComponent } from './core/user-register.component';
 import { UserLoginComponent } from './core/user-login.component';
 import { UserLogoutComponent } from './core/user-logout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, UserLogoutComponent],
+  declarations: [
+    AppComponent, 
+    UserRegisterComponent, 
+    UserLogoutComponent,
+    UserLoginComponent, 
+  ],
 
   //all the Modules is added in the array of import
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, CommentsModule, CandidatesModule, ApracticingLazyLoadingModule ],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, CommentsModule, CandidatesModule, ApracticingLazyLoadingModule, BrowserAnimationsModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

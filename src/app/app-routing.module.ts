@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserRegisterComponent } from './core/user-register.component';
 import { UserLoginComponent } from './core/user-login.component';
 
-const routes: Routes = [
+export const routes: Routes = [
     { path: '', component: UserLoginComponent },
     { path: 'iniciar-sesion', component: UserLoginComponent },
     { path: 'registro', component: UserRegisterComponent },

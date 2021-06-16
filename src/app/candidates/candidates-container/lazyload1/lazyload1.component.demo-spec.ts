@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Lazyload1Component } from './lazyload1.component';
 
@@ -23,3 +23,4 @@ describe('Lazyload1Component', () => {
     expect(component).toBeTruthy();
   });
 });
+ */

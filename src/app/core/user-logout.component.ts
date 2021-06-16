@@ -19,7 +19,7 @@ export class UserLogoutComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {}
     ngAfterViewInit() {
-        console.log(this.closeSessionButton?.nativeElement);
+        //console.log(this.closeSessionButton?.nativeElement);
     }
     sendLogout() {
         this.stateLogin.emit(false);

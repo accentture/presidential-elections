@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirstComponent } from './first.component';
 
-describe('FirstComponent', () => {
+xdescribe('FirstComponent', () => {
   let component: FirstComponent;
   let fixture: ComponentFixture<FirstComponent>;
 
@@ -23,3 +23,4 @@ describe('FirstComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+ */

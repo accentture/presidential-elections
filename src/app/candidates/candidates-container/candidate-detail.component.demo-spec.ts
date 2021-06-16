@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CandidateDetailComponent } from './candidate-detail.component';
 
-describe('CandidateDetailComponent', () => {
+xdescribe('CandidateDetailComponent', () => {
   let component: CandidateDetailComponent;
   let fixture: ComponentFixture<CandidateDetailComponent>;
 
@@ -23,3 +23,4 @@ describe('CandidateDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+ */
